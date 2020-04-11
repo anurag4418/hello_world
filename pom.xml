@@ -23,6 +23,38 @@
                 </configuration>
             </plugin>
         </plugins>
+
+      <plugins>
+        <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-deploy-plugin</artifactId>
+           <version>3.0.0</version>
+           <configuration>
+              <skip>true</skip>
+           </configuration>
+        </plugin>
+
+        <plugin>
+           <groupId>org.sonatype.plugins</groupId>
+           <artifactId>nexus-staging-maven-plugin</artifactId>
+           <version>1.6.6</version>
+           <executions>
+              <execution>
+                 <id>default-deploy</id>
+                 <phase>deploy</phase>
+                 <goals>
+                    <goal>deploy</goal>
+                 </goals>
+              </execution>
+           </executions>
+           <configuration>
+              <serverId>release</serverId>
+              <nexusUrl>http://34.70.42.161:8081/repository/helloworld_release/</nexusUrl>
+              <skipStaging>true</skipStaging>
+           </configuration>
+        </plugin>
+      </plugins> 
+        
     </build>
 
     <dependencyManagement>
@@ -59,38 +91,6 @@
         <jersey.version>2.27</jersey.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-
-  <plugins>
-    <plugin>
-       <groupId>org.apache.maven.plugins</groupId>
-       <artifactId>maven-deploy-plugin</artifactId>
-       <version>3.0.0</version>
-       <configuration>
-          <skip>true</skip>
-       </configuration>
-    </plugin>
-
-    <plugin>
-       <groupId>org.sonatype.plugins</groupId>
-       <artifactId>nexus-staging-maven-plugin</artifactId>
-       <version>1.6.6</version>
-       <executions>
-          <execution>
-             <id>default-deploy</id>
-             <phase>deploy</phase>
-             <goals>
-                <goal>deploy</goal>
-             </goals>
-          </execution>
-       </executions>
-       <configuration>
-          <serverId>release</serverId>
-          <nexusUrl>http://34.70.42.161:8081/repository/helloworld_release/</nexusUrl>
-          <skipStaging>true</skipStaging>
-       </configuration>
-    </plugin>
-  </plugins> 
 
   <distributionManagement>
     <repository>
