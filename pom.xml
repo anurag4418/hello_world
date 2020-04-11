@@ -47,7 +47,7 @@
                </executions>
                <configuration>
                   <serverId>releases</serverId>
-                  <nexusUrl>http://34.70.42.161:8081/nexus</nexusUrl>
+                  <nexusUrl>http://34.70.42.161:8081/</nexusUrl>
                   <skipStaging>true</skipStaging>
                </configuration>
             </plugin>
