@@ -35,7 +35,7 @@
             <plugin>
                <groupId>org.sonatype.plugins</groupId>
                <artifactId>nexus-staging-maven-plugin</artifactId>
-               <version>1.6.6</version>
+               <version>1.5.1</version>
                <executions>
                   <execution>
                      <id>default-deploy</id>
@@ -46,8 +46,8 @@
                   </execution>
                </executions>
                <configuration>
-                  <serverId>release</serverId>
-                  <nexusUrl>http://34.70.42.161:8081/repository/helloworld_release/</nexusUrl>
+                  <serverId>releases</serverId>
+                  <nexusUrl>http://34.70.42.161:8081/nexus</nexusUrl>
                   <skipStaging>true</skipStaging>
                </configuration>
             </plugin>
