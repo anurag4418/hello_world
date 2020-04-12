@@ -26,7 +26,7 @@ pipeline {
 	    		script {
 
 	    			sshagent(['key1']) {
-	    			def tomcatDevIp = '34.70.42.161'
+	    			def tomcatDevIp = '35.238.53.50'
 	    			sh "scp -o StrictHostKeyChecking=no target/helloWorld*.war anurag@${tomcatDevIp}:/opt/tomcat/webapps/myweb.war"
 	    			sh "ssh anurag@${tomcatDevIp} /opt/tomcat/bin/shutdown.sh"
 	    			sh "ssh anurag@${tomcatDevIp} /opt/tomcat/bin/startup.sh"
