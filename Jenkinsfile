@@ -21,6 +21,19 @@ pipeline {
 	          }
 	    }
 
+	    stage('sonar') {
+
+	    	environment {
+	    		scannerHome = tool 'sonar_scanner'
+	    	}
+	    	steps {
+	    		withSonarQubeEnv(credentialsId: 'sonarscanner') {
+    				sh "${scannerHome}/bin/sonar-scanner"
+				}
+	    	}
+
+	    }
+
 	    stage('deploy') {
 	    	steps {
 	    		script {
