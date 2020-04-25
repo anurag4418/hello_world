@@ -39,11 +39,11 @@ pipeline {
 	    		script {
 
 	    			sshagent(['key1']) {
-	    			def tomcatServerIp = '35.202.93.122'
+	    			def tomcatServerIp = '35.202.93.122' 
 			        sh "ssh anurag@${tomcatServerIp} sudo rm -rf /opt/tomcat/webapps/*.war "
 	    			sh "scp -o StrictHostKeyChecking=no target/helloWorld*.war anurag@${tomcatServerIp}:/opt/tomcat/webapps/helloWorld.war"
                     sh "ssh anurag@${tomcatServerIp} sudo systemctl restart tomcat.service"
-				}
+					}
 	    		}
 	    	}
 	    }
