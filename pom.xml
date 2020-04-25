@@ -9,6 +9,12 @@
     <version>1.0.0-SNAPSHOT</version>
     <name>helloWorld</name>
 
+    <properties>
+        <nexus_ip>35.202.93.122</nexus_ip>
+        <jersey.version>2.27</jersey.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>    
+
     <build>
         <finalName>helloWorld</finalName>
         <plugins>
@@ -47,7 +53,7 @@
                </executions>
                <configuration>
                   <serverId>releases</serverId>
-                  <nexusUrl>http://35.239.125.166:8081/</nexusUrl>
+                  <nexusUrl>http://${nexus_ip}:8081/</nexusUrl>
                   <skipStaging>true</skipStaging>
                </configuration>
             </plugin>
@@ -85,19 +91,16 @@
         </dependency>
         -->
     </dependencies>
-    <properties>
-        <jersey.version>2.27</jersey.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+
 
   <distributionManagement>
     <repository>
       <id>releases</id>
-      <url>http://35.239.125.166:8081/repository/helloworld_release/</url>
+      <url>http://${nexus_ip}:8081/repository/helloworld_release/</url>
     </repository>
     <snapshotRepository>
       <id>snapshots</id>
-      <url>http://35.239.125.166:8081/repository/helloworld_snap/</url>
+      <url>http://${nexus_ip}:8081/repository/helloworld_snap/</url>
     </snapshotRepository>
   </distributionManagement>    
 </project>
